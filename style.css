@@ -1,0 +1,24 @@
+#map {
+  height: 50vh;
+  width: 35vw;
+  position: absolute;
+  margin-left: 50%;
+
+  transform: translate(-50%);
+}
+h1 {
+  text-align: center;
+}
+
+body,html {
+  font-family: "Comic Sans MS";
+  height: 75%;
+  margin-left: 1%;
+  background-color: rgb(253, 242, 220);
+ 
+}
+.banner {
+  padding: 60px;
+  background: #2c250e;
+}
+

@@ -1,0 +1,33 @@
+<!--Written By Jonathan Shaw 03/2020-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Place Searches</title>
+    <div class="banner"></div>
+    <h1>Find Coffee!</h1>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel ="stylesheet" href="./style.css"> 
+ 
+  </head>
+  <body>
+       
+  <div class="form-group">
+    <label><b>Location:</b></label>
+      <input type="text" class="form-control" id="search_input" placeholder="City or Zip" />
+      <input type="hidden" id="lat" />
+      <input type="hidden" id="lng" />
+    <br></br>
+  </div>
+
+  <div id="map"></div> 
+  <div>        
+    <p><b>Coffee Shops:<br /></b> <span id="cafe_list"></span></p>
+  </div>    
+    
+  </body>
+  <script src="./Map.js"> </script>
+  <script src="./Autocomplete.js"> </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDep9_GRO56R68H0U2SBMSmnbcPwRGpi7Q&libraries=places&libraries=places&callback=initMap"></script>
+</html>
