@@ -1,6 +1,6 @@
 //Written By Jonathan Shaw 03/2020
 
-var cafes=[];
+var cafes = [];
 var map;
 var service;
 var infowindow;
@@ -11,7 +11,7 @@ function initMap(la, ln, zm) {
     //center of US
     la = 37.0902;
     ln = -95.7129;
-    zm = 4; 
+    zm = 4;
   }
   var city = new google.maps.LatLng(la, ln);
   infowindow = new google.maps.InfoWindow();
@@ -28,13 +28,13 @@ function initMap(la, ln, zm) {
   };
 
   service = new google.maps.places.PlacesService(map);
-  service.nearbySearch(request,callback);
-  
-function callback(results, status) {
+  service.nearbySearch(request, callback);
+
+  function callback(results, status) {
     if (results.length === 0) {
       cafes = [];
       cafes.push("No results found");
-      document.getElementById("cafe_list").innerHTML = cafes;
+      document.getElementById("tableData").innerHTML = cafes;
     }
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
@@ -43,13 +43,18 @@ function callback(results, status) {
 
       map.setCenter(results[0].geometry.location);
     }
-  };
+  }
 }
 
 function createMarker(place) {
+ 
   var marker = new google.maps.Marker({
     map: map,
-    position: place.geometry.location
+    position: place.geometry.location,
+    icon: {
+      url: "./images/coffee-shop-marker.png",
+      scaledSize: new google.maps.Size(30, 30)
+    }
   });
   updateCafesArray(place);
   google.maps.event.addListener(marker, "click", function() {
@@ -58,11 +63,23 @@ function createMarker(place) {
   });
 }
 
+function updateTableData() {
+
+  tableBody = document.getElementById("tableData");
+  let dataHtml = "";
+
+  for (let i = 0; i < cafes.length; i++) {
+    dataHtml += `<tr><td>${cafes[i]}</td></tr>`;
+  }
+  tableBody.innerHTML = dataHtml;
+}
+
 function updateCafesArray(place) {
   cafes = [];
+
   var request = { reference: place.reference };
   service.getDetails(request, function(details) {
-    cafes.push(
+    cafes.push(   
         "<br />" +
         "<b>" +
         details.name +
@@ -76,7 +93,8 @@ function updateCafesArray(place) {
         details.rating +
         "<br />"
     );
-
-    document.getElementById("cafe_list").innerHTML = cafes;
+    updateTableData();
+    
+    
   });
 }
