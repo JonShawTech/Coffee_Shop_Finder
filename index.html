@@ -4,52 +4,53 @@
 <html>
   <head>
     <title>Find coffee!</title>
-    
-    <h1></h1>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <link rel ="stylesheet" href="./style.css"> 
- 
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-       
- <div id="main">
-  <div class="banner">
-  <div class="banner-text">
-     <h1>Coffee Finder!</h1>
-  </div>
-  <div class="banner-logo"></div>
-  </div>
-      <div class="results-container">
-        <br>
-      <!-- <label><b>Location:</b></label> -->
-        <input type="text" class="form-control" id="search_input" placeholder="City or Zip" />
+    <div id="main">
+      <div class="banner">
+        <div class="banner-text">
+          <h1>Coffee Finder!</h1>
+        </div>
+        <!-- banner-text-->
+        <!-- <div class="banner-logo"></div> -->
+      </div>
+      <!-- end banner-->
+      <div>
+        <br /><br /><br />
+        <input
+          type="text"
+          class="form-control"
+          id="search_input"
+          placeholder="Enter a location"
+        />
         <input type="hidden" id="lat" />
         <input type="hidden" id="lng" />
-      <br></br>
-      
+      </div>
+      <div id="results-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Cafés</th>
+            </tr>
+          </thead>
 
-    <div id="map"></div> 
-    
-    <br>
-    <table >
-      <thead>
-        <tr> 
-          <th>Cafés</th>           
-        </tr>
-      </thead> 
+          <tbody id="tableData"></tbody>
+        </table>
+      </div>
+      <!-- end results container-->
+      <div id="map-container">
+        <div id="map"></div>
+      </div>
+      <div class=""></div>
+    </div>
+    <!-- end main-->
+  </body>
 
-      <tbody id="tableData"> </tbody>
-    </table>
-
-    </div>   
-     
-      
-    </body>
-
-</div>
-
-  <script src="./Map.js"> </script>
-  <script src="./Autocomplete.js"> </script>
+  <script src="./Map.js"></script>
+  <script src="./Autocomplete.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDep9_GRO56R68H0U2SBMSmnbcPwRGpi7Q&libraries=places&libraries=places&callback=initMap"></script>
 </html>
