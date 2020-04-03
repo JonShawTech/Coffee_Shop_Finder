@@ -11,7 +11,7 @@ function initMap(la, ln, zm) {
     //center of US
     la = 37.0902;
     ln = -95.7129;
-    zm = 4;
+    zm = 3;
   }
   var city = new google.maps.LatLng(la, ln);
   infowindow = new google.maps.InfoWindow();
